@@ -6,6 +6,7 @@ CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${CURRENT_DIR}/tmux-core.sh"
 
 main() {
+	local opt_theme
 	local opt_theme_dark
 	local opt_theme_light
 
@@ -18,10 +19,13 @@ main() {
 	opt_theme_dark_mode="$("${CURRENT_DIR}/tmux-theme-dark.scpt")"
 
 	if [[ "$opt_theme_dark_mode" == "true" ]]; then
-		echo "$opt_theme_dark"
+		opt_theme="$opt_theme_dark"
 	else
-		echo "$opt_theme_light"
+		opt_theme="$opt_theme_light"
 	fi
+
+	tmux_source_file "$opt_theme"
+	tmux_set_variable "TMUX_THEME" "$(basename "${opt_theme%.*}")"
 }
 
 main "$@"

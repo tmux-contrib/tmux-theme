@@ -3,16 +3,10 @@
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # shellcheck disable=1090
-source "${CURRENT_DIR}/scripts/tmux-core.sh"
+THEME_PATH="${CURRENT_DIR}/scripts/tmux-theme.sh"
 
 main() {
-	# shellcheck disable=1090
-	opt_theme="$("${CURRENT_DIR}"/scripts/tmux-theme.sh)"
-	tmux_source_file "$opt_theme"
-
-	# set the theme name
-	opt_theme_name="$(basename "${opt_theme%.*}")"
-	tmux_set_variable "TMUX_THEME" "$opt_theme_name"
+	"${CURRENT_DIR}/scripts/tmux-theme-daemon.swift" "${THEME_PATH}" &
 }
 
 main
