@@ -8,8 +8,11 @@ source "${CURRENT_DIR}/scripts/tmux-core.sh"
 main() {
 	# shellcheck disable=1090
 	opt_theme="$("${CURRENT_DIR}"/scripts/tmux-theme.sh)"
-
 	tmux_source_file "$opt_theme"
+
+	# set the theme name
+	opt_theme_name="$(basename "${opt_theme%.*}")"
+	tmux_set_variable "TMUX_THEME" "$opt_theme_name"
 }
 
 main
