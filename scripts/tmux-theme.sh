@@ -6,26 +6,29 @@ CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "${CURRENT_DIR}/tmux-core.sh"
 
 main() {
-	local opt_theme
-	local opt_theme_dark
-	local opt_theme_light
+	local OPT_THEME_NAME
+	local OPT_THEME_PATH
 
 	tmux set -g @theme_dark "$HOME/.config/tmux/themes/catppuccin-mocha.tmux"
 	tmux set -g @theme_light "$HOME/.config/tmux/themes/catppuccin-latte.tmux"
 
 	# dark & light themes
-	opt_theme_light="$(tmux_get_option "@theme_light")"
-	opt_theme_dark="$(tmux_get_option "@theme_dark")"
 	opt_theme_dark_mode="$("${CURRENT_DIR}/tmux-theme-dark.scpt")"
 
 	if [[ "$opt_theme_dark_mode" == "true" ]]; then
-		opt_theme="$opt_theme_dark"
+		OPT_THEME_PATH="$(tmux_get_option "@theme_dark")"
 	else
-		opt_theme="$opt_theme_light"
+		OPT_THEME_PATH="$(tmux_get_option "@theme_light")"
 	fi
 
-	tmux_source_file "$opt_theme"
-	tmux_set_variable "TMUX_THEME" "$(basename "${opt_theme%.*}")"
+	# refresh the tmux theme
+	tmux_source_file "$OPT_THEME_PATH"
+
+	OPT_THEME_NAME="$(basename "${OPT_THEME_PATH%.*}")"
+	# set environment variables
+	tmux_set_variable "TMUX_THEME" "$OPT_THEME_NAME"
+	# refresh the tmux client
+	tmux_refresh_client
 }
 
 main "$@"

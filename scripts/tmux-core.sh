@@ -29,3 +29,7 @@ tmux_source_file() {
 	# source the file
 	tmux source-file "$file"
 }
+
+tmux_refresh_client() {
+	tmux refresh-client -S
+}
