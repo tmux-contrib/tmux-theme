@@ -30,14 +30,18 @@ The plugin includes 7 theme variants across 2 theme families:
 
 ## Configuration
 
-Select a theme by sourcing it in your `.tmux.conf`:
+Set the desired themes in your `.tmux.conf`:
 
 ```bash
-# Catppuccin themes
-source-file "$TMUX_PLUGIN_MANAGER_PATH/tmux-theme/themes/catppuccin-mocha.conf"
+# Select a dark theme
+set -g @theme_dark "rose-pine-moon"
 
-# Rose Pine themes
-source-file "$TMUX_PLUGIN_MANAGER_PATH/tmux-theme/themes/rose-pine.conf"
+# Select a light theme
+set -g @theme_light "rose-pine-dawn"
+
+# Optional: Path to your status bar config (sourced after theme colors are loaded)
+# Note: Use $HOME instead of ~ for path expansion
+set -g @theme_path "$HOME/.config/tmux/status.tmux"
 ```
 
 ## License
