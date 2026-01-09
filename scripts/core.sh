@@ -24,7 +24,9 @@ tmux_get_option() {
 #   Variable value
 tmux_get_variable() {
 	local name="$1"
-	tmux display -p "#{$name}"
+	local default="$2"
+	value="$(tmux display -p "#{$name}")"
+	echo "${value:-$default}"
 }
 
 # Source a tmux config file

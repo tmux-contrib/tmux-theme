@@ -6,7 +6,7 @@ source "$_tmux_theme_source_dir/scripts/core.sh"
 
 main() {
 	local theme_mode
-	theme_mode="$(tmux_get_variable "client_theme")"
+	theme_mode="$(tmux_get_variable "client_theme" "dark")"
 
 	local theme_dark
 	theme_dark="$(tmux_get_option "@theme_dark" "catppuccin-mocha")"
