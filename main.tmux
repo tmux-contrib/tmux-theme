@@ -9,12 +9,12 @@ main() {
 	theme_mode="$(tmux_get_variable "client_theme" "dark")"
 
 	local theme_dark
-	theme_dark="$(tmux_get_option "@theme_dark" "catppuccin-mocha")"
+	theme_dark="$(tmux_get_option "@theme-dark" "catppuccin-mocha")"
 	# Handle dark theme hook
 	tmux set-hook -g client-dark-theme "source-file $_tmux_theme_source_dir/themes/${theme_dark}.conf"
 
 	local theme_light
-	theme_light="$(tmux_get_option "@theme_light" "catppuccin-latte")"
+	theme_light="$(tmux_get_option "@theme-light" "catppuccin-latte")"
 	# Handle light theme hook
 	tmux set-hook -g client-light-theme "source-file $_tmux_theme_source_dir/themes/${theme_light}.conf"
 
@@ -25,7 +25,7 @@ main() {
 	fi
 
 	local theme_path
-	theme_path="$(tmux_get_option "@theme_path" "")"
+	theme_path="$(tmux_get_option "@theme-path" "")"
 	# Source user's status bar config (uses @thm_* variables)
 	# This runs BEFORE other TPM plugins, so they can interpolate #{cpu_percentage} etc.
 	if [[ -n "$theme_path" ]]; then

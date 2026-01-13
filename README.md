@@ -34,14 +34,14 @@ Set the desired themes in your `.tmux.conf`:
 
 ```bash
 # Select a dark theme
-set -g @theme_dark "rose-pine-moon"
+set -g @theme-dark "rose-pine-moon"
 
 # Select a light theme
-set -g @theme_light "rose-pine-dawn"
+set -g @theme-light "rose-pine-dawn"
 
 # Optional: Path to your status bar config (sourced after theme colors are loaded)
 # Note: Use $HOME instead of ~ for path expansion
-set -g @theme_path "$HOME/.config/tmux/status.tmux"
+set -g @theme-path "$HOME/.config/tmux/status.tmux"
 ```
 
 ## License
