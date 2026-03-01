@@ -3,13 +3,21 @@
 A simple tmux theme plugin that bundles color themes and exposes variables for
 status bar customization.
 
+## Dependencies
+
+### Required
+
+- [tmux](https://github.com/tmux/tmux) 3.5+ (for `client-dark-theme` / `client-light-theme` hooks)
+
 ## Installation
 
-Using [TPM](https://github.com/tmux-plugins/tpm):
+Add this plugin to your `~/.tmux.conf`:
 
-```bash
+```tmux
 set -g @plugin 'tmux-contrib/tmux-theme'
 ```
+
+And install it by running `<prefix> + I`.
 
 ## Available Themes
 
@@ -17,31 +25,57 @@ The plugin includes 7 theme variants across 2 theme families:
 
 ### Catppuccin
 
-- `catppuccin-mocha.conf` - Dark theme with warm tones
-- `catppuccin-frappe.conf` - Dark theme with cool tones
-- `catppuccin-macchiato.conf` - Dark theme, balanced
-- `catppuccin-latte.conf` - Light theme
+- `catppuccin-mocha` - Dark theme with warm tones
+- `catppuccin-frappe` - Dark theme with cool tones
+- `catppuccin-macchiato` - Dark theme, balanced
+- `catppuccin-latte` - Light theme
 
 ### Rose Pine
 
-- `rose-pine.conf` - Dark main variant
-- `rose-pine-moon.conf` - Darker variant with muted colors
-- `rose-pine-dawn.conf` - Light theme
+- `rose-pine` - Dark main variant
+- `rose-pine-moon` - Darker variant with muted colors
+- `rose-pine-dawn` - Light theme
 
 ## Configuration
 
-Set the desired themes in your `.tmux.conf`:
+Set the desired themes in your `~/.tmux.conf`:
 
-```bash
-# Select a dark theme
+```tmux
+# Select a dark theme (default: catppuccin-mocha)
 set -g @theme-dark "rose-pine-moon"
 
-# Select a light theme
+# Select a light theme (default: catppuccin-latte)
 set -g @theme-light "rose-pine-dawn"
 
 # Optional: Path to your status bar config (sourced after theme colors are loaded)
 # Note: Use $HOME instead of ~ for path expansion
 set -g @theme-path "$HOME/.config/tmux/status.tmux"
+```
+
+## Development
+
+### Prerequisites
+
+Install dependencies using [Nix](https://nixos.org/):
+
+```sh
+nix develop
+```
+
+Or install manually: `bash`, `tmux`, `bats`
+
+### Running Tests
+
+```sh
+bats tests/
+```
+
+### Debugging
+
+Enable trace output with the `DEBUG` environment variable:
+
+```sh
+DEBUG=1 tmux source-file /path/to/tmux-theme/main.tmux
 ```
 
 ## License
