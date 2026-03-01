@@ -1,7 +1,6 @@
 # tmux-theme
 
-A simple tmux theme plugin that bundles color themes and exposes variables for
-status bar customization.
+Automatically switch your tmux theme between dark and light mode on macOS. Bundles color themes and exposes variables for status bar customization.
 
 ## Dependencies
 
