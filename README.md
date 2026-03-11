@@ -1,5 +1,7 @@
 # tmux-theme
 
+[![Test](https://github.com/tmux-contrib/tmux-theme/actions/workflows/test.yml/badge.svg)](https://github.com/tmux-contrib/tmux-theme/actions/workflows/test.yml) [![Release](https://img.shields.io/github/v/release/tmux-contrib/tmux-theme)](https://github.com/tmux-contrib/tmux-theme/releases) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Automatically switch your tmux theme between dark and light mode on macOS. Bundles color themes and exposes variables for status bar customization.
 
 ## Dependencies
