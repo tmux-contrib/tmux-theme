@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/tmux-contrib/tmux-theme/compare/v0.2.1...v0.2.2) (2026-05-04)
+
+
+### Bug Fixes
+
+* **github:** correct action versions in update.yml ([bbeeac0](https://github.com/tmux-contrib/tmux-theme/commit/bbeeac0cbe4718610d4a91d2e413cf36e0380d5f))
+
 ## [0.2.1](https://github.com/tmux-contrib/tmux-theme/compare/v0.2.0...v0.2.1) (2026-04-11)
 
 
