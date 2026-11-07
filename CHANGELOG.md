@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/tmux-contrib/tmux-theme/compare/v0.2.2...v0.2.3) (2026-11-07)
+
+
+### Bug Fixes
+
+* **ci:** merge with the App token so main gets its CI run ([#42](https://github.com/tmux-contrib/tmux-theme/issues/42)) ([6400fb8](https://github.com/tmux-contrib/tmux-theme/commit/6400fb88fbac58263b857b32c3fbbaaf317df840))
+
 ## [0.2.2](https://github.com/tmux-contrib/tmux-theme/compare/v0.2.1...v0.2.2) (2026-05-04)
 
 
