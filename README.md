@@ -53,6 +53,17 @@ set -g @theme-light "rose-pine-dawn"
 set -g @theme-path "$HOME/.config/tmux/status.tmux"
 ```
 
+## Custom Themes
+
+`@theme-dark` and `@theme-light` also accept an absolute path to your own theme file, so it survives plugin updates:
+
+```tmux
+set -g @theme-dark  "$HOME/.config/tmux/themes/my-dark.conf"
+set -g @theme-light "rose-pine-dawn"
+```
+
+A custom theme is a regular tmux config file that sets the same `@thm_*` variables as the bundled themes (see [`themes/rose-pine.conf`](themes/rose-pine.conf) for a template). Use `$HOME` instead of `~` so the path expands.
+
 ## Development
 
 ### Prerequisites
