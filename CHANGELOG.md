@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/tmux-contrib/tmux-theme/compare/v0.2.3...v0.3.0) (2026-11-10)
+
+
+### Features
+
+* allow custom theme files via absolute path in @theme-dark/[@theme-light](https://github.com/theme-light) ([#45](https://github.com/tmux-contrib/tmux-theme/issues/45)) ([bb7805e](https://github.com/tmux-contrib/tmux-theme/commit/bb7805eddd70e34afad032a0391fbad30b517859))
+
 ## [0.2.3](https://github.com/tmux-contrib/tmux-theme/compare/v0.2.2...v0.2.3) (2026-11-07)
 
 
