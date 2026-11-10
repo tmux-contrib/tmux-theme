@@ -15,3 +15,15 @@ setup() {
 	run _tmux_get_option "@nonexistent"
 	[[ "$output" = "" ]]
 }
+
+# -- _tmux_resolve_theme ---------------------------------------------------
+
+@test "_tmux_resolve_theme: bundled name resolves under themes/" {
+	run _tmux_resolve_theme "/plugin" "rose-pine"
+	[[ "$output" = "/plugin/themes/rose-pine.conf" ]]
+}
+
+@test "_tmux_resolve_theme: absolute path is returned as-is" {
+	run _tmux_resolve_theme "/plugin" "/home/me/my-theme.conf"
+	[[ "$output" = "/home/me/my-theme.conf" ]]
+}

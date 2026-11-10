@@ -17,20 +17,22 @@ main() {
 	local theme_mode
 	theme_mode="$(_tmux_get_variable "client_theme" "dark")"
 
+	# @theme-dark / @theme-light accept a bundled theme name or an absolute
+	# path to a custom theme file.
 	local theme_dark
-	theme_dark="$(_tmux_get_option "@theme-dark" "catppuccin-mocha")"
+	theme_dark="$(_tmux_resolve_theme "$_tmux_theme_root" "$(_tmux_get_option "@theme-dark" "catppuccin-mocha")")"
 	# Handle dark theme hook
-	tmux set-hook -g client-dark-theme "source-file $_tmux_theme_root/themes/${theme_dark}.conf"
+	tmux set-hook -g client-dark-theme "source-file \"$theme_dark\""
 
 	local theme_light
-	theme_light="$(_tmux_get_option "@theme-light" "catppuccin-latte")"
+	theme_light="$(_tmux_resolve_theme "$_tmux_theme_root" "$(_tmux_get_option "@theme-light" "catppuccin-latte")")"
 	# Handle light theme hook
-	tmux set-hook -g client-light-theme "source-file $_tmux_theme_root/themes/${theme_light}.conf"
+	tmux set-hook -g client-light-theme "source-file \"$theme_light\""
 
 	if [[ $theme_mode == "dark" ]]; then
-		_tmux_source_file "$_tmux_theme_root/themes/${theme_dark}.conf"
+		_tmux_source_file "$theme_dark"
 	elif [[ $theme_mode == "light" ]]; then
-		_tmux_source_file "$_tmux_theme_root/themes/${theme_light}.conf"
+		_tmux_source_file "$theme_light"
 	fi
 
 	local theme_path

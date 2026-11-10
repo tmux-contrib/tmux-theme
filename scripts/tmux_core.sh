@@ -42,3 +42,25 @@ _tmux_source_file() {
 
 	[[ -f "$file" ]] && tmux source-file "$file"
 }
+
+# Resolve a theme setting to a theme file path
+#
+# A value starting with "/" is treated as an absolute path to a custom theme
+# file and returned as-is. Anything else is a bundled theme name, resolved to
+# <root>/themes/<name>.conf.
+#
+# Arguments:
+#   $1 - plugin root directory
+#   $2 - theme name or absolute path
+# Outputs:
+#   Path to the theme file
+_tmux_resolve_theme() {
+	local root="$1"
+	local theme="$2"
+
+	if [[ $theme == /* ]]; then
+		echo "$theme"
+	else
+		echo "$root/themes/${theme}.conf"
+	fi
+}
