@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/tmux-contrib/tmux-theme/compare/v0.4.0...v0.4.1) (2026-11-14)
+
+
+### Bug Fixes
+
+* **themes:** use official Rose Pine palette colors for inactive panes ([#49](https://github.com/tmux-contrib/tmux-theme/issues/49)) ([4cb1a20](https://github.com/tmux-contrib/tmux-theme/commit/4cb1a200c50086680f26149173a2a976828340ed))
+
 ## [0.4.0](https://github.com/tmux-contrib/tmux-theme/compare/v0.3.0...v0.4.0) (2026-11-14)
 
 
