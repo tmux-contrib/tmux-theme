@@ -27,3 +27,26 @@ setup() {
 	run _tmux_resolve_theme "/plugin" "/home/me/my-theme.conf"
 	[[ "$output" = "/home/me/my-theme.conf" ]]
 }
+
+# -- _tmux_pane_focus_styles -----------------------------------------------
+
+@test "_tmux_pane_focus_styles: off yields nothing" {
+	run _tmux_pane_focus_styles "off"
+	[[ "$output" = "" ]]
+}
+
+@test "_tmux_pane_focus_styles: unknown mode yields nothing" {
+	run _tmux_pane_focus_styles "bogus"
+	[[ "$output" = "" ]]
+}
+
+@test "_tmux_pane_focus_styles: dim paints active pane with @thm_bg" {
+	run _tmux_pane_focus_styles "dim"
+	[[ "${output#*|}" = "bg=#{@thm_bg}" ]]
+	[[ "${output%%|*}" == *"@thm_bg_inactive"* ]]
+}
+
+@test "_tmux_pane_focus_styles: dim-transparent leaves active pane to the terminal" {
+	run _tmux_pane_focus_styles "dim-transparent"
+	[[ "${output#*|}" = "bg=default" ]]
+}

@@ -53,6 +53,20 @@ set -g @theme-light "rose-pine-dawn"
 set -g @theme-path "$HOME/.config/tmux/status.tmux"
 ```
 
+## Pane Focus
+
+Optionally give the active pane a different background from inactive ones. Off by default, so existing setups are unchanged:
+
+```tmux
+# off (default) | dim | dim-transparent
+set -g @theme-pane-focus "dim"
+```
+
+- `dim` - active pane uses the theme background, inactive panes use a darker shade (`@thm_bg_inactive`, falling back to `@thm_mantle` for custom themes).
+- `dim-transparent` - same, but the active pane keeps your terminal's own background (`bg=default`), for translucent terminals or background images.
+
+This uses tmux's `window-style` / `window-active-style`, so it works with any number of splits and follows dark/light switching. It sets those two global options, overriding your own values. Apps that paint their own background (e.g. vim with an opaque colorscheme) are not dimmed.
+
 ## Custom Themes
 
 `@theme-dark` and `@theme-light` also accept an absolute path to your own theme file, so it survives plugin updates:
