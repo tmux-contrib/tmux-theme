@@ -43,6 +43,26 @@ _tmux_source_file() {
 	[[ -f "$file" ]] && tmux source-file "$file"
 }
 
+# Compute the pane styles for a @theme-pane-focus mode
+#
+# Styles reference @thm_* variables as formats, which tmux expands at draw
+# time, so they follow dark/light theme switches without being re-applied.
+# Custom themes without @thm_inactive_bg fall back to @thm_mantle.
+#
+# Arguments:
+#   $1 - mode: off | dim | dim-transparent
+# Outputs:
+#   "<window-style>|<window-active-style>", or nothing for off/unknown modes
+_tmux_pane_focus_styles() {
+	local mode="$1"
+	local inactive='bg=#{?@thm_inactive_bg,#{@thm_inactive_bg},#{@thm_mantle}}'
+
+	case "$mode" in
+	dim) echo "${inactive}|bg=#{@thm_bg}" ;;
+	dim-transparent) echo "${inactive}|bg=default" ;;
+	esac
+}
+
 # Resolve a theme setting to a theme file path
 #
 # A value starting with "/" is treated as an absolute path to a custom theme

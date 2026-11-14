@@ -35,6 +35,15 @@ main() {
 		_tmux_source_file "$theme_light"
 	fi
 
+	# Opt-in: dim inactive panes. tmux picks window-active-style for the active
+	# pane and window-style for the rest, so splits need no focus hook.
+	local pane_styles
+	pane_styles="$(_tmux_pane_focus_styles "$(_tmux_get_option "@theme-pane-focus" "off")")"
+	if [[ -n "$pane_styles" ]]; then
+		tmux set-option -g window-style "${pane_styles%%|*}"
+		tmux set-option -g window-active-style "${pane_styles#*|}"
+	fi
+
 	local theme_path
 	theme_path="$(_tmux_get_option "@theme-path" "")"
 	# Source user's status bar config (uses @thm_* variables)
