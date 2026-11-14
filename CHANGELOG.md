@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/tmux-contrib/tmux-theme/compare/v0.4.1...v0.4.2) (2026-11-14)
+
+
+### Bug Fixes
+
+* **themes:** darken inactive panes on dark Rose Pine variants ([#51](https://github.com/tmux-contrib/tmux-theme/issues/51)) ([9153092](https://github.com/tmux-contrib/tmux-theme/commit/9153092e7f70592df775b3baa8ef620551b17982))
+
 ## [0.4.1](https://github.com/tmux-contrib/tmux-theme/compare/v0.4.0...v0.4.1) (2026-11-14)
 
 
