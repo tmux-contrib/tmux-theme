@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/tmux-contrib/tmux-theme/compare/v0.3.0...v0.4.0) (2026-11-14)
+
+
+### Features
+
+* add opt-in [@theme-pane-focus](https://github.com/theme-pane-focus) to dim inactive panes ([#47](https://github.com/tmux-contrib/tmux-theme/issues/47)) ([6dd6ec5](https://github.com/tmux-contrib/tmux-theme/commit/6dd6ec5153f38ee5aa0d7709a6e91a33846434a7))
+
 ## [0.3.0](https://github.com/tmux-contrib/tmux-theme/compare/v0.2.3...v0.3.0) (2026-11-10)
 
 
